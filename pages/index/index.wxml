@@ -1,0 +1,51 @@
+<!--index.wxml-->
+<view class="container">
+  
+  <view class="userinfo">
+    <view class="login">
+     <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> Log In </button>
+    </view>
+
+    <view class="useravatar">
+      <block wx:if="{{hasUserInfo || !canIUse}}}">
+      <image bindtap="bindAvatarTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+    </block>
+    </view>
+  </view>
+
+  <view class="create-list">
+    <block wx:if="{{createList}}">
+        <input type="text" bindinput="bindToCreate" bindconfirm="bindToConfirm" placeholder="write down your list" focus="true" value="{{myTask}}"/>
+    </block>
+  </view>
+
+  <view class="todo-list">  
+    <block wx:for="{{myTaskList}}" wx:key="id" >
+      <block wx:if="{{item.done}}">
+          <scroll-view class="task-done scroll-view_area" scroll-x="true">
+            <view class="task scroll-view-left" id="{{item.id}}" bindtap="bindToFinish">● {{item.text}}</view>
+            <view class="scroll-view-right">
+              <image class="icon-edit" src="../images/edit.png"></image>
+              <text>\t{{item.text}}</text>
+              <image class="icon-remove" src="../images/remove.png"></image>
+            </view>
+          </scroll-view>
+      </block>
+      <block wx:else>
+        <scroll-view class="task-undone scroll-view_area" scroll-x="true" style="width: 95%">
+          <view class="task scroll-view-left" id="{{item.id}}" bindtap="bindToFinish">● {{item.text}}</view>
+          <view class="scroll-view-right">
+            <image class="icon-edit" id="{{item.id}}" bindtap="bindToEdit" src="../images/edit.png"></image>
+            <text>\t</text>
+            <image class="icon-remove" id="{{item.id}}" bindtap="bindToRemove" src="../images/remove.png"></image>
+          </view>
+        </scroll-view>
+      </block>
+    </block>
+  </view>
+
+  <view class="create-button">
+    <text catchtap="catchMottoTap">{{motto}}</text>
+  </view>
+    
+</view>

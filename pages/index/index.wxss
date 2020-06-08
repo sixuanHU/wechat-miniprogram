@@ -1,0 +1,55 @@
+/**index.wxss**/
+.login {
+  margin-top: -20%;
+}
+
+.todo-list {
+  width: 100%;
+  margin-left: 5%;
+}
+
+.useravatar {
+  position: absolute;
+  right: 0px;
+  top: 0px;
+}
+
+.userinfo-avatar {
+  width: 60rpx;
+  height: 60rpx;
+  margin: 10rpx;
+  border-radius: 50%;
+}
+
+.create-list {
+  position: absolute;
+  left: 5%;
+  top: 5%;
+}
+
+.task-done .task {
+  text-decoration: line-through;
+  color: #808080
+}
+
+.create-button {
+  margin-top: 30%;
+}
+
+.scroll-view_area{
+  white-space: nowrap;
+}
+.scroll-view-left{
+  display: inline-block;
+  width: 100%;
+}
+.scroll-view-right{
+  display: inline-block;
+  width: 5%;
+}
+
+image {
+  display: inline-block;
+  height: 20px;
+  width: 20px;
+}
